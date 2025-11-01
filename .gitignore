@@ -1,0 +1,67 @@
+# Backend - Java/Spring Boot
+Back-End/stud-erp/target/
+Back-End/stud-erp/.mvn/wrapper/maven-wrapper.jar
+Back-End/stud-erp/.mvn/wrapper/maven-wrapper.properties
+*.class
+*.jar
+*.war
+*.ear
+*.logs
+*.log
+.idea/
+.eclipse/
+.metadata/
+.recommenders/
+.settings/
+.project
+.classpath
+*.iml
+*.ipr
+*.iws
+
+# Frontend - Node.js/React
+Front-End/College-ERP/node_modules/
+Front-End/College-ERP/dist/
+Front-End/College-ERP/build/
+Front-End/College-ERP/.env
+Front-End/College-ERP/.env.local
+Front-End/College-ERP/.env.development.local
+Front-End/College-ERP/.env.test.local
+Front-End/College-ERP/.env.production.local
+Front-End/College-ERP/npm-debug.log*
+Front-End/College-ERP/yarn-debug.log*
+Front-End/College-ERP/yarn-error.log*
+Front-End/College-ERP/package-lock.json
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE files
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Application specific
+application-dev.properties
+application-prod.properties
+*.env
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp

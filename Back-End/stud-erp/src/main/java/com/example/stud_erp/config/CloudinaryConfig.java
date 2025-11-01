@@ -1,0 +1,40 @@
+package com.example.stud_erp.config;
+
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class CloudinaryConfig {
+
+  @Value("${cloudinary.cloud-name}")
+  private String cloudName;
+
+  @Value("${cloudinary.api-key}")
+  private String apiKey;
+
+  @Value("${cloudinary.api-secret}")
+  private String apiSecret;
+
+  @Bean
+  public Cloudinary cloudinary() {
+    // Validate configuration
+    if (cloudName == null || cloudName.trim().isEmpty()) {
+      throw new IllegalArgumentException("Cloudinary cloud name is required");
+    }
+    if (apiKey == null || apiKey.trim().isEmpty()) {
+      throw new IllegalArgumentException("Cloudinary API key is required");
+    }
+    if (apiSecret == null || apiSecret.trim().isEmpty()) {
+      throw new IllegalArgumentException("Cloudinary API secret is required");
+    }
+
+    return new Cloudinary(ObjectUtils.asMap(
+        "cloud_name", cloudName,
+        "api_key", apiKey,
+        "api_secret", apiSecret,
+        "secure", true));
+  }
+}
