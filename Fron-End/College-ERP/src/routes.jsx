@@ -11,6 +11,8 @@ import {
   UserGroupIcon,
   AcademicCapIcon,
   BuildingOfficeIcon,
+  CreditCardIcon,
+  DocumentTextIcon,
 } from "@heroicons/react/24/solid";
 import { lazy, Suspense } from "react";
 
@@ -47,6 +49,10 @@ const StudentNotifications = lazy(() =>
 );
 const StudentSemesterTable = lazy(() =>
   import("@/pages/dashboard/student/SemesterTable")
+);
+const StudentPayment = lazy(() => import("@/pages/dashboard/student/Payment"));
+const StudentPaymentHistory = lazy(() =>
+  import("@/pages/dashboard/student/PaymentHistory")
 );
 
 const HODSignIn = lazy(() => import("@/pages/auth/hod/HODSignIn"));
@@ -256,6 +262,26 @@ export const routes = [
         element: (
           <Suspense fallback={<LoadingSpinner />}>
             <StudentAttendanceView />
+          </Suspense>
+        ),
+      },
+      {
+        icon: <CreditCardIcon {...icon} />,
+        name: "Fee Payment",
+        path: "/student/payment",
+        element: (
+          <Suspense fallback={<LoadingSpinner />}>
+            <StudentPayment />
+          </Suspense>
+        ),
+      },
+      {
+        icon: <DocumentTextIcon {...icon} />,
+        name: "Payment History",
+        path: "/student/payment-history",
+        element: (
+          <Suspense fallback={<LoadingSpinner />}>
+            <StudentPaymentHistory />
           </Suspense>
         ),
       },

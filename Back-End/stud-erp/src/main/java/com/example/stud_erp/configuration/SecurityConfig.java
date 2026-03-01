@@ -60,6 +60,10 @@ public class SecurityConfig {
                                                 .permitAll()
                                                 .requestMatchers("/api/email/**")
                                                 .permitAll()
+                                                .requestMatchers("/api/payments/**")
+                                                .permitAll()
+                                                .requestMatchers("/api/razorpay/**")
+                                                .permitAll()
                                                 .requestMatchers(org.springframework.http.HttpMethod.PUT,
                                                                 "/api/students/**",
                                                                 "/api/professors/**",

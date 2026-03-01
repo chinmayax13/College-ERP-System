@@ -51,6 +51,19 @@ const API_CONFIG = {
       HODS: '/admin/hods',
       DEPARTMENTS: '/admin/departments',
       COURSES: '/admin/courses',
+    },
+    PAYMENTS: {
+      CREATE: '/payments/create',
+      INITIALIZE_SEMESTER_FEE: '/payments/initialize-semester-fee',
+      PROCESS_PAYMENT: '/payments/process',
+      GET_BY_STUDENT: '/payments/student',
+      GET_PENDING: '/payments/student',
+      GET_HISTORY: '/payments/student',
+      GET_SUMMARY: '/payments/student',
+      GET_BY_ID: '/payments',
+      GET_BY_TRANSACTION: '/payments/transaction',
+      GET_FEE_STRUCTURE: '/payments/fee-structure',
+      DELETE: '/payments',
     }
   }
 };

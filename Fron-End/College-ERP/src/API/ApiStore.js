@@ -175,3 +175,130 @@ export const getStudentCount = async (hodId) => {
     throw new Error(error.response?.data || "Failed to fetch student count");
   }
 };
+
+// ============ Payment API Functions ============
+
+// Get payment summary for a student
+export const getPaymentSummary = async (studentId) => {
+  try {
+    const response = await axios.get(
+      `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PAYMENTS.GET_SUMMARY}/${studentId}/summary`
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data || "Failed to fetch payment summary");
+  }
+};
+
+// Get pending payments for a student
+export const getPendingPayments = async (studentId) => {
+  try {
+    const response = await axios.get(
+      `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PAYMENTS.GET_PENDING}/${studentId}/pending`
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data || "Failed to fetch pending payments");
+  }
+};
+
+// Get payment history for a student
+export const getPaymentHistory = async (studentId) => {
+  try {
+    const response = await axios.get(
+      `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PAYMENTS.GET_HISTORY}/${studentId}/history`
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data || "Failed to fetch payment history");
+  }
+};
+
+// Get all payments for a student
+export const getAllPayments = async (studentId) => {
+  try {
+    const response = await axios.get(
+      `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PAYMENTS.GET_BY_STUDENT}/${studentId}`
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data || "Failed to fetch payments");
+  }
+};
+
+// Initialize semester fee for a student
+export const initializeSemesterFee = async (studentId, semester, academicYear, residentialType = 'DAY_SCHOLAR') => {
+  try {
+    const response = await axios.post(
+      `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PAYMENTS.INITIALIZE_SEMESTER_FEE}`,
+      null,
+      {
+        params: {
+          studentId,
+          semester,
+          academicYear,
+          residentialType
+        }
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data || "Failed to initialize semester fee");
+  }
+};
+
+// Process a payment
+export const processPayment = async (paymentId, paymentMethod, remarks = "") => {
+  try {
+    const response = await axios.put(
+      `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PAYMENTS.PROCESS_PAYMENT}/${paymentId}`,
+      null,
+      {
+        params: {
+          paymentMethod,
+          remarks
+        }
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data || "Failed to process payment");
+  }
+};
+
+// Get fee structure
+export const getFeeStructure = async () => {
+  try {
+    const response = await axios.get(
+      `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PAYMENTS.GET_FEE_STRUCTURE}`
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data || "Failed to fetch fee structure");
+  }
+};
+
+// Get payment by ID
+export const getPaymentById = async (paymentId) => {
+  try {
+    const response = await axios.get(
+      `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PAYMENTS.GET_BY_ID}/${paymentId}`
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data || "Failed to fetch payment details");
+  }
+};
+
+// Get payment by transaction ID
+export const getPaymentByTransactionId = async (transactionId) => {
+  try {
+    const response = await axios.get(
+      `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PAYMENTS.GET_BY_TRANSACTION}/${transactionId}`
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data || "Failed to fetch payment by transaction ID");
+  }
+};
+
